@@ -308,4 +308,22 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
       }
     });
   }
+
+  @ReactMethod
+  public void keyExists(final String keyTag, final Promise promise) {
+    AsyncTask.execute(new Runnable() {
+      @Override
+      public void run() {
+        WritableNativeMap keys = new WritableNativeMap();
+
+        try {
+          RSA rsa = new RSA(keyTag);
+          Boolean keyExists = rsa.keyExists();
+          promise.resolve(keyExists);
+        } catch (Exception e) {
+          promise.reject("Error", e.getMessage());
+        }
+      }
+    });
+  }
 }
