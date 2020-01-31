@@ -31,6 +31,7 @@ declare module 'react-native-rsa-native' {
 		export function verify(data: string, secretToVerify: string, keyTag: string): Promise<boolean>;
 		export function verifyWithAlgorithm(data: string, secretToVerify: string, keyTag: string, signature?: 'SHA256withRSA' | 'SHA512withRSA'): Promise<boolean>;
 		export function getPublicKey(keyTag: string): Promise<string | undefined>;
+		export function keyExists(keyTag: string): Promise<boolean | undefined>;
 		export const SHA256withRSA: string;
 		export const SHA512withRSA: string;
 	}
