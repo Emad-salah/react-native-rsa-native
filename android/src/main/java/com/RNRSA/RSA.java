@@ -330,4 +330,9 @@ public class RSA {
         this.publicKey = keyPair.getPublic();
     }
 
+    public boolean keyExists() throws KeyStoreException, NoSuchAlgorithmException, IOException, CertificateException {
+        KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+        keyStore.load(null);
+        return keyStore.containsAlias(this.keyTag);
+    }
 }
