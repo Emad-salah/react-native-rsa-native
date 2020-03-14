@@ -261,11 +261,11 @@ public class RSA {
     public void loadFromKeystore() throws KeyStoreException, UnrecoverableEntryException, NoSuchAlgorithmException, IOException, CertificateException {
         KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
         keyStore.load(null);
-        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(this.keyTag, null);
+        PrivateKey privateKeyEntry = (PrivateKey) keyStore.getKey(this.keyTag, null);
         
         if (privateKeyEntry != null) {
-            this.privateKey = privateKeyEntry.getPrivateKey();
-            this.publicKey = privateKeyEntry.getCertificate().getPublicKey();
+            this.privateKey = privateKeyEntry;
+            this.publicKey = keyStore.getCertificate(this.keyTag).getPublicKey();
         }
     }
 
