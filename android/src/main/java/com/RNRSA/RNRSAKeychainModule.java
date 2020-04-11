@@ -87,7 +87,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void encrypt(final String message, final String keyTag, final Promise promise) {
+  public synchronized void encrypt(final String message, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -103,7 +103,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void encrypt64(final String message, final String keyTag, final Promise promise) {
+  public synchronized void encrypt64(final String message, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -119,7 +119,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void decrypt(final String encodedMessage, final String keyTag, final Promise promise) {
+  public synchronized void decrypt(final String encodedMessage, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -136,7 +136,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void decrypt64(final String encodedMessage, final String keyTag, final Promise promise) {
+  public synchronized void decrypt64(final String encodedMessage, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -153,7 +153,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void sign(final String message, final String keyTag, final Promise promise) {
+  public synchronized void sign(final String message, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -170,7 +170,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void signWithAlgorithm(final String message, final String keyTag, final String algorithm, final Promise promise) {
+  public synchronized void signWithAlgorithm(final String message, final String keyTag, final String algorithm, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -187,7 +187,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void sign64(final String message, final String keyTag, final Promise promise) {
+  public synchronized void sign64(final String message, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -203,7 +203,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
     });
   }
   @ReactMethod
-  public void sign64WithAlgorithm(final String message, final String keyTag, final String algorithm, final Promise promise) {
+  public synchronized void sign64WithAlgorithm(final String message, final String keyTag, final String algorithm, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -220,7 +220,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void verify(final String signature, final String message, final String keyTag, final Promise promise) {
+  public synchronized void verify(final String signature, final String message, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -237,7 +237,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void verifyWithAlgorithm(final String signature, final String message, final String keyTag, final String algorithm, final Promise promise) {
+  public synchronized void verifyWithAlgorithm(final String signature, final String message, final String keyTag, final String algorithm, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -254,7 +254,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void verify64(final String signature, final String message, final String keyTag, final Promise promise) {
+  public synchronized void verify64(final String signature, final String message, final String keyTag, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -271,7 +271,7 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void verify64WithAlgorithm(final String signature, final String message, final String keyTag, final String algorithm, final Promise promise) {
+  public synchronized void verify64WithAlgorithm(final String signature, final String message, final String keyTag, final String algorithm, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
