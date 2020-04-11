@@ -69,7 +69,7 @@ public class RNRSAModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void encrypt(final String message, final String publicKeyString, final Promise promise) {
+  public synchronized void encrypt(final String message, final String publicKeyString, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
@@ -103,7 +103,7 @@ public class RNRSAModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void decrypt(final String encodedMessage, final String privateKeyString, final Promise promise) {
+  public synchronized void decrypt(final String encodedMessage, final String privateKeyString, final Promise promise) {
     AsyncTask.execute(new Runnable() {
       @Override
       public void run() {
